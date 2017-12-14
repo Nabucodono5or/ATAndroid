@@ -17,6 +17,9 @@ public class TelaInicial extends AppCompatActivity implements View.OnClickListen
 
         btnLogin = findViewById(R.id.btnLogin);
         btnCadastro = findViewById(R.id.btnCadastro);
+
+        btnLogin.setOnClickListener(this);
+        btnCadastro.setOnClickListener(this);
     }
 
     @Override
@@ -24,7 +27,7 @@ public class TelaInicial extends AppCompatActivity implements View.OnClickListen
         Intent intent;
         switch (view.getId()){
             case R.id.btnLogin:
-                intent = new Intent(this,TelaLogin.class);
+                intent = new Intent(this, TelaLogin.class);
                 startActivity(intent);
                 break;
             case R.id.btnCadastro:

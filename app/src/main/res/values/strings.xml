@@ -3,5 +3,16 @@
     <string name="titulo">Assessment</string>
     <string name="btn_login">Login</string>
     <string name="btn_cadastro">Cadastro</string>
+    <string name="nome">Nome</string>
+    <string name="email">Login (Email)</string>
+    <string name="senha">Senha</string>
+    <string name="repita_senha">Confirmar senha</string>
+    <string name="cpf">CPF</string>
+    <string name="login">Login (Email)</string>
     <string name="btn_facebook">Entrar via Facebook</string>
+    <string name="entrar">Entrar</string>
+    <string name="salvar">Salvar</string>
+    <string name="voltar">Voltar</string>
+    <string name="exemplo_email">exemplo@mail.com</string>
+    <string name="exemplo_cpf">xxx.xxx.xxx-xx</string>
 </resources>
