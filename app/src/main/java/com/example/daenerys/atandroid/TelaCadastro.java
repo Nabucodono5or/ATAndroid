@@ -77,7 +77,9 @@ public class TelaCadastro extends AppCompatActivity  implements View.OnClickList
                     //por enquanto vai ficar sem database
                     DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
                     String userId = ref.push().getKey();
-                    ref.child(user.getUid());
+
+                    Usuario usuario = new Usuario(nome.getText().toString(), cpf.getText().toString());
+                    ref.child(user.getUid()).setValue(usuario);
 
                     updateUI(user);
 
