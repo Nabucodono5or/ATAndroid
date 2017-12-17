@@ -84,7 +84,7 @@ public class TelaCadastro extends AppCompatActivity  implements View.OnClickList
                     updateUI(user);
 
                 }else {
-
+                    Log.w(TAG,"error:UserWithEmailAndPassword");
                 }
             }
         });
