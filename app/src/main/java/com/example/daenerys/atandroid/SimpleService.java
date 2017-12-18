@@ -11,12 +11,6 @@ import retrofit2.http.GET;
 
 public interface SimpleService {
 
-    @GET("descricao")
-    public List<String> getDescricao();
-
-    @GET("dadosAtividades.php")
-    public List<Tarefa> getTarefa();
-
     @GET("dadosAtividades.php")
     public Call<Example> getExample();
 }
