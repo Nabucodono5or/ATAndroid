@@ -3,11 +3,15 @@ package com.example.daenerys.atandroid;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.telecom.Call;
 import android.widget.Adapter;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import java.util.List;
+
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class TelaPrincipal extends AppCompatActivity {
 
@@ -20,18 +24,23 @@ public class TelaPrincipal extends AppCompatActivity {
 
         listView = (ListView) findViewById(R.id.list_view);
 
-        new AsyncTask<Void, Void, List<Tarefa>>() {
+        SegundaRest segundaRest = new SegundaRest();
+
+        segundaRest.start().enqueue(new Callback<Example>() {
             @Override
-            protected List<Tarefa> doInBackground(Void... voids) {
-                List<Tarefa> list = RestClient.getInstance().getTarefa();
-                return list;
+            public void onResponse(retrofit2.Call<Example> call, Response<Example> response) {
+                if(response.isSuccessful()){
+                    Example ex = response.body();
+                    TarefaAdapter adapter = new TarefaAdapter(TelaPrincipal.this,ex.getTarefa());
+                    listView.setAdapter(adapter);
+                }
             }
 
             @Override
-            protected void onPostExecute(List<Tarefa> tarefas) {
-                TarefaAdapter adapter = new TarefaAdapter(TelaPrincipal.this,tarefas);
-                listView.setAdapter(adapter);
+            public void onFailure(retrofit2.Call<Example> call, Throwable t) {
+
             }
-        }.execute();
+        });
+
     }// onCreate
 }//class

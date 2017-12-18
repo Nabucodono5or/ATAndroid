@@ -18,5 +18,5 @@ public interface SimpleService {
     public List<Tarefa> getTarefa();
 
     @GET("dadosAtividades.php")
-    public Example getExample();
+    public Call<Example> getExample();
 }
