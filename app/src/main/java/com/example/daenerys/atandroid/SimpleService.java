@@ -2,6 +2,7 @@ package com.example.daenerys.atandroid;
 
 import java.util.List;
 
+import retrofit2.Call;
 import retrofit2.http.GET;
 
 /**
@@ -10,5 +11,12 @@ import retrofit2.http.GET;
 
 public interface SimpleService {
 
+    @GET("descricao")
+    public List<String> getDescricao();
 
+    @GET("dadosAtividades.php")
+    public List<Tarefa> getTarefa();
+
+    @GET("dadosAtividades.php")
+    public Example getExample();
 }
