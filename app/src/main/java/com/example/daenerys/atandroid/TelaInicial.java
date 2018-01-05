@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
@@ -36,6 +37,7 @@ public class TelaInicial extends AppCompatActivity implements View.OnClickListen
     CallbackManager callbackManager;
     Button btnLogin, btnCadastro, btnFacebook;
     private static final String TAG = "facebook";
+    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +68,9 @@ public class TelaInicial extends AppCompatActivity implements View.OnClickListen
         });
 
 
+        progressBar = findViewById(R.id.progressBar2);
+        progressBar.setVisibility(View.INVISIBLE);
+
         btnLogin = findViewById(R.id.btnLogin);
         btnCadastro = findViewById(R.id.btnCadastro);
         btnFacebook = findViewById(R.id.btnFacebook);
@@ -80,6 +85,7 @@ public class TelaInicial extends AppCompatActivity implements View.OnClickListen
     private void handleFacebookAccessToken(AccessToken token) {
         if(token != null){
 
+            progressBar.setVisibility(View.VISIBLE);
             AuthCredential credential = FacebookAuthProvider.getCredential(token.getToken());
 
             mAuth.signInWithCredential(credential).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -119,6 +125,7 @@ public class TelaInicial extends AppCompatActivity implements View.OnClickListen
 
     public void updateUI(FirebaseUser user){
         if(user!= null){
+            progressBar.setVisibility(View.INVISIBLE);
             Intent intent = new Intent(this, TelaPrincipal.class);
             startActivity(intent);
         }
