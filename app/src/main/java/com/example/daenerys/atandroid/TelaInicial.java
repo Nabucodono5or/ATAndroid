@@ -29,7 +29,6 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Arrays;
 
-//https://atandroid-d9a01.firebaseapp.com/__/auth/handler
 public class TelaInicial extends AppCompatActivity implements View.OnClickListener {
 
     private FirebaseAuth mAuth;
