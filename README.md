@@ -28,3 +28,4 @@ Foi feito o uso de uma url para a obtenção do json com Retrofit, mais o acesso
 ![tela inicial](screenshot/tela_inicial.png)
 
 ## Licença
+Licenciado por [MIT LICENSE](https://github.com/Nabucodono5or/ATAndroid/blob/master/LICENSE)
